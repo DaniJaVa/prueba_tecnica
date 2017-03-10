@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 'Google Apis:Google Apis:23'
     buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.example.danis.pulpomatic"
@@ -28,4 +28,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
     compile 'com.google.android.gms:play-services-location:10.2.0'
+
+    compile 'com.akexorcist:googledirectionlibrary:1.0.4'
 }

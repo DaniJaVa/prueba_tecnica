@@ -2,8 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.danis.pulpomatic">
 
+
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +20,8 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDaqby7N-2hWOStFtYQumG3Tq8FjOnbPQs" />
+            android:value="AIzaSyDw3prMyflvWLpEekCyMjtmoY5PWaCD5lE"/>
+        <!--android:value="AIzaSyDaqby7N-2hWOStFtYQumG3Tq8FjOnbPQs"-->
 
         <meta-data
             android:name="com.google.android.gms.version"
