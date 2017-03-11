@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:hint="Search Location Here" />
+            android:hint="¿A dónde vas?"
+            android:textAlignment="center"/>
 
 
         <Button
@@ -30,7 +31,7 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:id="@+id/linearLayout2"
@@ -43,34 +44,53 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecciona a dónde quieres ir"
+            android:id="@+id/tvDistancia"
+            android:text="Selecciona una dirección"
+            android:layout_gravity="center"
             android:textSize="15dp"
+            android:paddingLeft="7dp"
+            android:layout_alignBaseline="@+id/tvDireccion"
+            android:layout_alignBottom="@+id/tvDireccion"
+            android:layout_toRightOf="@+id/tvDireccion"
+            android:layout_toEndOf="@+id/tvDireccion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp"
+            android:id="@+id/tvDireccion"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:text="Selecciona una dirección"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <Button
-            android:id="@+id/iniciar_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Iniciar"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+
+    </LinearLayout>
 
 
-    </RelativeLayout>
-
-
+    <Button
+        android:id="@+id/iniciar_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:background="@drawable/boton_redondo"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="onNavigationStart"/>
 
     <fragment
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_below="@+id/linearLayout" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
