@@ -223,6 +223,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     if (distanciaMetros > 100 && distanciaMetros <= 200) {
                                         direccion.setText("Estás lejos del punto objetivo");
 
+
+
                                     }
                                     if (distanciaMetros > 50 && distanciaMetros <= 100) {
                                         direccion.setText("Estás próximo al punto objetivo");
@@ -234,6 +236,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     }
                                     if (distanciaMetros < 10) {
                                         direccion.setText("Estás en el punto objetivo");
+                                        //publicar en twitter
+                                        Intent intent = new Intent(Intent.ACTION_SEND);
+                                        intent.setType("text/plain");
+                                        intent.putExtra(Intent.EXTRA_TEXT, "Llegué a mi destino :)");
+                                        intent.setPackage("com.twitter.android");
+                                        startActivity(intent);
                                     }
 
                                     distancia.setText("Distancia: " + distanciaMetros + " M");
@@ -249,8 +257,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(locationSearch.getWindowToken(), 0);
             }else {
-                Log.d("HOLA","AKIKEDO");
-                Toast.makeText(this,"Oops! Se te olvidó ingresar la dirección",Toast.LENGTH_LONG).show();
                 Snackbar.make(view, "Oops! Se te olvidó ingresar la dirección!", Snackbar.LENGTH_LONG).show();
             }
         }
@@ -294,7 +300,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             Intent.ACTION_VIEW,
                             Uri.parse("http://maps.google.com/maps?saddr=" + lat + "," + lon + "&daddr=" + address.getLatitude() + "," + address.getLongitude()));
                     startActivity(intent);
-                    button.setText("Parar");
+                    button.setText("Stop");
                     botonGO = true;
                 }else{
                     Snackbar.make(v, "Tienes que buscar una dirección primero", Snackbar.LENGTH_LONG).show();
